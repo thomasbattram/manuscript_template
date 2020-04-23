@@ -3,7 +3,7 @@
 # results path
 dat_path <- "report_data/"
 
-# auc data
+# study data
 study_dat <- read_tsv(paste0(dat_path, "example_study_dat.txt"))
 
 # Function for numbers in rmarkdown
