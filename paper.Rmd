@@ -1,0 +1,134 @@
+---
+title: A kickass title
+
+author: |
+  | Author1^[Corresponding author: author@gmail.com], et al. 
+  | $^1$ An affiliation 
+
+abstract: |
+  A sweet abstract
+
+bibliography: references.bib
+csl: apa.csl
+link-citations: yes
+
+output:
+  bookdown::pdf_document2:
+    includes:
+      in_header: preamble.tex
+    toc: False
+fig_caption: yes
+
+always_allow_html: yes
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+pkgs <- c("bookdown", "knitr", "kableExtra", "tidyverse")
+lapply(pkgs, require, character.only = TRUE)
+
+knitr::opts_chunk$set(echo = FALSE, 
+            warning = FALSE, 
+            message = TRUE, 
+            cache = FALSE, 
+            dpi = 300 
+            )
+
+# Function for numbers in rmarkdown
+comma <- function(x) format(x, digits = 2, big.mark = ",")
+```
+
+```{r call_source}
+read_chunk("paper.R")
+```
+
+``` {r load-data, results="hide", message=FALSE}
+```
+
+``` {r study-data-setup, results="hide", message=FALSE}
+```
+
+``` {r readymade-plot-setup, results = "hide", message=FALSE}
+```
+
+``` {r other-plot-setup, results = "hide", message=FALSE}
+```
+
+
+\newpage
+
+## Introduction {-#introduction}
+Some intro and here is a reference test @Relton2010
+
+
+\newpage
+
+## Methods {-#methods}
+
+### an-example-subheading {-#an-example-subheading}
+
+Here is an equation for you nerds out there:
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+
+Well would you look at that sweet equation. Let's give it a reference: if you love a binomial distribution look at equation \@ref(eq:binom)
+
+### Code availability {-#code-availability}
+Code used to run the analyses is available here: https://github.com/thomasbattram/something
+
+All analyses were completed using R (version __X__).
+
+\newpage
+
+## Results {-#results}
+
+### study data example {-#study-data-example}
+
+```{r study-data-tab, message=FALSE, results="asis"}
+```
+
+__Table \@ref(tab:study-data-tab)__
+
+### another subheading {-#another-subheading}
+
+Well wouldn't you look below it's __Figure \@ref(fig:a-figure-example)__
+
+(ref:fig-caption-example) This is an example text reference for a figure caption. 
+
+```{r a-figure-example, message=FALSE, results="asis", fig.cap='(ref:fig-caption-example)'}
+```
+
+And look at this, one more figure!!! See __Figure \@ref(fig:another-plot)__
+
+(ref:fig-caption-example2) This is an example text reference for a figure caption. 
+
+```{r another-plot, message=FALSE, results="asis", fig.cap='(ref:fig-caption-example2)'}
+```
+
+Let's link to my github page because I can [Tom's github](https://github.com/thomasbattram).
+
+Haven't figured out how to link to __Supplementary figures__ yet.
+
+\newpage
+
+## Discussion {-#discussion}
+
+### A discussion subheading {-#a-discussion-subheading}
+
+### Limitations {-#limitations}
+
+## Conclusion {-#conclusion}
+Overall this paper is the best and should be accepted in Nature, Science, NEJM and JAMA all at the same time.
+
+\newpage
+
+## References {-#references}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup

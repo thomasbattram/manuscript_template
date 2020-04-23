@@ -1,0 +1,4 @@
+study	n
+study1	12300
+study2	40000
+study3	5000

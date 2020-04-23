@@ -1,0 +1,43 @@
+---
+title: | 
+   | Supplementary material
+   | A kickass title
+
+author: |
+  | Author1^[Corresponding author: author@gmail.com], et al. 
+  | $^1$ An affiliation 
+
+bibliography: references.bib
+csl: apa.csl
+link-citations: yes
+
+output:
+  bookdown::pdf_document2:
+    includes:
+      in_header: preamble.tex
+    toc: False
+fig_caption: yes
+
+always_allow_html: yes
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+pkgs <- c("bookdown", "knitr", "kableExtra", "tidyverse")
+lapply(pkgs, require, character.only = TRUE)
+
+knitr::opts_chunk$set(echo = FALSE, 
+            warning = FALSE, 
+            message = TRUE, 
+            cache = FALSE, 
+            dpi = 300 
+            )
+```
+
+```{r call_source}
+read_chunk("paper.R")
+```
+
+``` {r load-data, results = "hide", message=FALSE}
+```
+
+## Figures {-#figures}
