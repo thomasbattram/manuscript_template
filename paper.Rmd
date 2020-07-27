@@ -9,7 +9,7 @@ abstract: |
   A sweet abstract
 
 bibliography: references.bib
-csl: apa.csl
+csl: american-journal-of-epidemiology.csl
 link-citations: yes
 
 output:
